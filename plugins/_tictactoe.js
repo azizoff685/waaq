@@ -24,10 +24,10 @@ handler.before = function (m) {
         }))
         if (!isSurrender && 1 > (ok = room.game.turn(m.sender === room.game.playerO, parseInt(m.text) - 1))) {
             m.reply({
-                '-3': 'Game telah berakhir',
-                '-2': 'Invalid',
-                '-1': 'Posisi Invalid',
-                0: 'Posisi Invalid',
+                '-3': 'Oyun bitdi',
+                '-2': 'Yanlış',
+                '-1': 'Yanlış Mövqe',
+                0: 'Yanlış Mövqe',
             }[ok])
             return !0
         }
@@ -57,11 +57,11 @@ handler.before = function (m) {
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
-${isWin ? `@${winner.split('@')[0]} Menang! (+${winScore} XP)` : isTie ? `Game berakhir (+${playScore} XP)` : `Giliran ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
+${isWin ? `@${winner.split('@')[0]} Qazandın! (+${winScore} XP)` : isTie ? `Oyun bitdi (+${playScore} XP)` : `Dönün ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
 
 ❌: @${room.game.playerX.split('@')[0]}
 ⭕: @${room.game.playerO.split('@')[0]}
-Ketik *nyerah* untuk nyerah
+İmtina etmək üçün *nyerah* yazın
 Room ID: ${room.id}
 `.trim()
         let users = global.DATABASE._data.users
