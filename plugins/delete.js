@@ -2,7 +2,7 @@ let handler = function (m) {
   if (!m.quoted) throw false
   let { chat, fromMe, id, isBaileys } = m.quoted
   if (!fromMe) throw false
-  if (!isBaileys) throw 'Pesan tersebut bukan dikirim oleh bot!'
+  if (!isBaileys) throw 'Mesaj bot tərəfindən göndəriləmədi!'
   this.deleteMessage(chat, {
     fromMe,
     id,
