@@ -7,28 +7,28 @@ async function handler(m, { command }) {
         case 'next':
         case 'leave': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (!room) throw 'Kamu tidak sedang berada di anonymous chat'
+            if (!room) throw 'Anonim söhbətdə deyilsiniz'
             m.reply('Ok')
             let other = room.other(m.sender)
-            if (other) this.sendMessage(other, 'Partner meninggalkan chat', MessageType.text)
+            if (other) this.sendMessage(other, 'Tərəfdaşlar söhbətdən ayrılırlar', MessageType.text)
             delete this.anonymous[room.id]
             if (command === 'leave') break
         }
         case 'start': {
-            if (Object.values(this.anonymous).find(room => room.check(m.sender))) throw 'Kamu masih berada di dalam anonymous chat'
-            let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
+            if (Object.values(this.anonymous).find(room => room.check(m.sender))) throw 'Hələ də anonim söhbətdəsiniz'
+            let room = Object.values(this.anonymous).find(room => room.state === 'GÖZLƏYİN' && !room.check(m.sender))
             if (room) {
-                this.sendMessage(room.a, 'Menemukan partner!', MessageType.text)
+                this.sendMessage(room.a, 'Bir tərəfdaş tapın!', MessageType.text)
                 room.b = m.sender
                 room.state = 'CHATTING'
-                m.reply('Menemukan partner!')
+                m.reply('Bir tərəfdaş tapın!')
             } else {
                 let id = + new Date
                 this.anonymous[id] = {
                     id,
                     a: m.sender,
                     b: '',
-                    state: 'WAITING',
+                    state: 'GÖZLƏYİN',
                     check: function (who = '') {
                         return [this.a, this.b].includes(who)
                     },
