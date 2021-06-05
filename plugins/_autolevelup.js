@@ -9,7 +9,7 @@ handler.before = m => {
 	if (before !== user.level) m.reply(`
 Təbrik edirəm, səviyyə yüksəldiniz!
 *${before}* -> *${user.level}*
-Yoxlamaq üçün *.profile* istifadə edin
+Baxmaq üçün *.profile* yazın
 	`.trim())
 }
 
