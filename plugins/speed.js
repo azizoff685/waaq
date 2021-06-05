@@ -38,35 +38,35 @@ let handler = async (m, { conn }) => {
     }
   })
   let old = performance.now()
-  await m.reply('_Testing speed..._')
+  await m.reply('_1dk Qağa Sürəti Ölçürəm..._')
   let neww = performance.now()
   let speed = neww - old
   let txt = `
-Merespon dalam ${speed} millidetik
+${speed} Milisaniyə
 
 💬 Status :
-- *${groups.length}* Group Chats
-- *${groupsIn.length}* Groups Joined
-- *${groups.length - groupsIn.length}* Groups Left
-- *${chats.length - groups.length}* Personal Chats
-- *${chats.length}* Total Chats
+- *${groups.length}* Qrup söhbətləri
+- *${groupsIn.length}* Qrupa Qoşuldu
+- *${groups.length - groupsIn.length}* Qrupdan Çıxdı
+- *${chats.length - groups.length}* Şəxsi Söhbətlər
+- *${chats.length}* Toplam Çat
 
-📱 *Phone Info* :
+📱 *Telefon Məlumatı* :
 ${'```' + `
-🔋 Battery : ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Charging...' : '⚡ Discharging'}` : 'Unknown'}
+🔋 Zaretqa : ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Şarj Olunur...' : '⚡ Boşalma'}` : 'Unknown'}
 ${util.format(conn.user.phone)}
 `.trim() + '```'}
 
-💻 *Server Info* :
+💻 *Server haqqında məlumat* :
 RAM: ${format(os.totalmem() - os.freemem())} / ${format(os.totalmem())}
 
-_NodeJS Memory Usage_
+_NodeJS Yaddaş İstifadəsi_
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${format(used[key])}`).join('\n') + '```'}
 
-${cpus[0] ? `_Total CPU Usage_
+${cpus[0] ? `_Ümumi CPU istifadəsi_
 ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
 
-_CPU Core(s) Usage (${cpus.length} Core CPU)_
+_CPU Core (lər) in istifadəsi (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
 `.trim()
   m.reply(txt)
