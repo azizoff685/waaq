@@ -12,17 +12,17 @@ let handler = async (m, { conn, args, participants }) => {
   let len = args[0] && args[0].length > 0 ? Math.min(100, Math.max(parseInt(args[0]), 5)) : Math.min(5, sortedExp.length)
   let text = `
 • *XP Lideri Top ${len}* •
-Sən: *${usersExp.indexOf(m.sender) + 1}* dan *${usersExp.length}*
+Kamu: *${usersExp.indexOf(m.sender) + 1}* dari *${usersExp.length}*
 
 ${sortedExp.slice(0, len).map(({ jid, exp }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${exp} Exp*`).join`\n`}
 
 • *Limit Lideri Top ${len}* •
-Sən: *${usersLim.indexOf(m.sender) + 1}* dan *${usersLim.length}*
+Kamu: *${usersLim.indexOf(m.sender) + 1}* dari *${usersLim.length}*
 
 ${sortedLim.slice(0, len).map(({ jid, limit }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${limit} Limit*`).join`\n`}
 
 • *Level Lideri Top ${len}* •
-Sən: *${usersLevel.indexOf(m.sender) + 1}* dan *${usersLevel.length}*
+Kamu: *${usersLevel.indexOf(m.sender) + 1}* dari *${usersLevel.length}*
 
 ${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Level ${level}*`).join`\n`}
 `.trim()
@@ -32,9 +32,9 @@ ${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants
     }
   })
 }
-handler.help = ['leaderboard [jumlah user]', 'lb [jumlah user]']
+handler.help = ['liderlövhəsi [istifadəçi sayı]', 'lb [istifadəçi sayı]']
 handler.tags = ['xp']
-handler.command = /^(leaderboard|lb)$/i
+handler.command = /^(liderlövhəsi|lb)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
