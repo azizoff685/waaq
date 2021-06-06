@@ -30,16 +30,15 @@ const defaultMenu = {
 ╭─「 %me 」
 │ Salam, %name!
 │
-│ Tersisa *%limit Limit*
-│ Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]
-│ %totalexp XP in Total
+│ Qalan Limit *%limit Limit*
+│ Level *%level (%exp / %maxexp)* [%xp4levelup xpyə ehtiyacın var]
+│ %totalexp XP Sahibsən
 │ 
-│ Tanggal: *%week %weton, %date*
-│ Tanggal Islam: *%dateIslamic*
-│ Waktu: *%time*
+│ Tarix: *%week %weton, %date*
+│ Saat: *%time*
 │
-│ Uptime: *%uptime (%muptime)*
-│ Database: %rtotalreg of %totalreg
+│ Aktiv: *%uptime (%muptime)*
+│ veri bazası: %rtotalreg of %totalreg
 │ Github:
 │ %github
 ╰────
