@@ -20,7 +20,7 @@ Qeydiyyat Uğurla Tamamlandı!
 
 ╭─「 Məlumat 」
 │ Ad: ${name}
-│ Yaş: ${age} tahun
+│ Yaş: ${age} 
 │ SN: ${sn}
 ╰────
 `.trim())
