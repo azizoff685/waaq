@@ -53,13 +53,13 @@ Birini seç @${room.game.currentTurn.split('@')[0]}
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Menunggu partner' + (text ? `mengetik command dibawah ini
+        m.reply('Qatılımcı Gözləyirəm' + (text ? `Qatılmaq İstəyən Aşağıdaki Əmri Yazsın
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
 }
 
-handler.help = ['tictactoe', 'ttt'].map(v => v + ' [custom room name]')
+handler.help = ['tictactoe', 'ttt'].map(v => v + ' [xüsusi otaq adı]')
 handler.tags = ['']
 handler.command = /^(tictactoe|t{3})$/
 
