@@ -61,7 +61,7 @@ ${isWin ? `@${winner.split('@')[0]} Qazandın! (+${winScore} XP)` : isTie ? `Oyu
 
 ❌: @${room.game.playerX.split('@')[0]}
 ⭕: @${room.game.playerO.split('@')[0]}
-İmtina etmək üçün *nyerah* yazın
+İmtina etmək üçün *imtina* yazın
 Room ID: ${room.id}
 `.trim()
         let users = global.DATABASE._data.users
