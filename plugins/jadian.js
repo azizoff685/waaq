@@ -7,15 +7,15 @@ function handler(m, { groupMetadata }) {
     let b
     do b = ps[Fl(R() * ps.length)]
     while (b === a)
-    m.reply(`${toM(a)} ❤️ ${toM(b)}`, null, {
+    m.reply(`${toM(a)} 😈 ${toM(b)}`, null, {
         contextInfo: {
             mentionedJid: [a, b]
         }
     })
 }
-handler.help = ['jadian']
+handler.help = ['tagadmin']
 handler.tags = ['main']
-handler.command = ['jadian']
+handler.command = ['tagadmin']
 handler.group = true
 handler.limit = true
 
