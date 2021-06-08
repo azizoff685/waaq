@@ -10,7 +10,7 @@ handler.before = function (m) {
     let isTie = !1
     let isSurrender = !1
     this.game = this.game ? this.game : {}
-    let room = Object.values(this.game).find(room => room.id && room.game && room.state && room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
+    let room = Object.values(this.game).find(room => room.id && room.game && room.state && room.id.startsWith('xo') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
     if (room) {
         // m.reply(`[DEBUG]\n${parseInt(m.text)}`)
         if (!/^([1-9]|(me)?imtina|surr?ender)$/i.test(m.text)) return !0
@@ -24,7 +24,7 @@ handler.before = function (m) {
         }))
         if (!isSurrender && 1 > (ok = room.game.turn(m.sender === room.game.playerO, parseInt(m.text) - 1))) {
             m.reply({
-                '-3': 'Oyun bitdi',
+                '-3': 'Oyun Bitdi',
                 '-2': 'Yanlış',
                 '-1': 'Yanlış Mövqe',
                 0: 'Yanlış Mövqe',
@@ -57,7 +57,7 @@ handler.before = function (m) {
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
-${isWin ? `@${winner.split('@')[0]} Qazandın! (+${winScore} XP)` : isTie ? `Oyun bitdi (+${playScore} XP)` : `Dönün ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
+${isWin ? `@${winner.split('@')[0]} Qazandın! (+${winScore} XP)` : isTie ? `Oyun bitdi (+${playScore} XP)` : `Seçin ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
 
 ❌: @${room.game.playerX.split('@')[0]}
 ⭕: @${room.game.playerO.split('@')[0]}
