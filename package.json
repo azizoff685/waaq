@@ -1,7 +1,7 @@
 {
-  "name": "wabot-aq",
+  "name": "Avara BOT",
   "version": "2.1.2",
-  "description": "Customizable WhatsApp Bot",
+  "description": "Azərbaycanlı ilk BOT",
   "depecrated": false,
   "main": "index.js",
   "directories": {
