@@ -3,27 +3,27 @@ let path = require('path')
 let levelling = require('../lib/levelling')
 let tags = {
   'main': 'Main',
-  'game': 'Game',
+  'game': 'Oyunlar',
   'xp': 'Exp & Limit',
   'sticker': 'Sticker',
-  'kerang': 'Kerang Ajaib',
-  'quotes': 'Quotes',
+  'kerang': 'Sehirli Qabıq',
+  'quotes': 'Alıntılar',
   'admin': 'Admin',
-  'group': 'Group',
+  'group': 'Qrup',
   'premium': 'Premium',
-  'internet': 'Internet',
-  'anonymous': 'Anonymous Chat',
+  'internet': 'İnternet',
+  'anonymous': 'Anonim Söhbət',
   'nulis': 'MagerNulis & Logo',
-  'downloader': 'Downloader',
-  'tools': 'Tools',
-  'fun': 'Fun',
+  'downloader': 'Yükləyici',
+  'tools': 'Alətlər',
+  'fun': 'Əyləncə',
   'database': 'Database',
   'jadibot': 'Jadi Bot',
-  'owner': 'Owner',
+  'owner': 'Qurucu',
   'host': 'Host',
-  'advanced': 'Advanced',
+  'advanced': 'Qabaqcıl',
   'info': 'Info',
-  '': 'No Category',
+  '': 'Kateqoriya Yoxdur',
 }
 const defaultMenu = {
   before: `
@@ -63,7 +63,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     // Offset -420 is 18.00
     // Offset    0 is  0.00
     // Offset  420 is  7.00
-    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
+    let weton = ['Birinci gün', 'İkinci gün', 'Üçüncü gün', 'Dördüncü gün', 'Beşinci gün', 'Altıncı gün', 'Bazar'][Math.floor(d / 84600000) % 7]
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
       day: 'numeric',
