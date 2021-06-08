@@ -2,14 +2,14 @@ const TicTacToe = require("../lib/tictactoe")
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     conn.game = conn.game ? conn.game : {}
-    if (Object.values(conn.game).find(room => room.id.startsWith('xno') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw 'Hələ oyundasınız'
-    let room = Object.values(conn.game).find(room => room.state === 'GÖZLƏYİN' && (text ? room.name === text : true))
+    if (Object.values(conn.game).find(room => room.id.startsWith('xo') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw 'Hələ Oyundasınız'
+    let room = Object.values(conn.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
     // m.reply('[WIP Feature]')
     if (room) {
-        m.reply('Tərəfdaşlar tapıldı!')
+        m.reply('Partner Tapıldı!')
         room.o = m.chat
         room.game.playerO = m.sender
-        room.state = 'OYNAYAN'
+        room.state = 'PLAYING'
         let arr = room.game.render().map(v => {
             return {
                 X: '❌',
@@ -31,7 +31,7 @@ ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
 
-Birini seç @${room.game.currentTurn.split('@')[0]}
+Xana seç @${room.game.currentTurn.split('@')[0]}
 İmtina etmək üçün *imtina* yazın
 `.trim()
         if (room.x !== room.o) m.reply(str, room.x, {
@@ -46,21 +46,21 @@ Birini seç @${room.game.currentTurn.split('@')[0]}
         })
     } else {
         room = {
-            id: 'tictactoe-' + (+new Date),
+            id: 'xo-' + (+new Date),
             x: m.chat,
             o: '',
             game: new TicTacToe(m.sender, 'o'),
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Qatılımcı Gözləyirəm\n' + (text ? `\nQatılmaq İstəyən Aşağıdaki Əmri Yazsın
+        m.reply('Oyuna Qatılmaq Üçün' + (text ? `\nAşağıdaki Əmri Yazın
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
 }
 
-handler.help = ['tictactoe', 'ttt'].map(v => v + ' [xüsusi otaq adı]')
+handler.help = ['xo', 'ttt'].map(v => v + ' [xüsusi otaq adı]')
 handler.tags = ['']
-handler.command = /^(tictactoe|t{3})$/
+handler.command = /^(xo|t{3})$/
 
 module.exports = handler
