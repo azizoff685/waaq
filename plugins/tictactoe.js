@@ -53,7 +53,7 @@ Xana seç @${room.game.currentTurn.split('@')[0]}
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Oyuna Qatılmaq Üçün' + (text ? `\nAşağıdaki Əmri Yazın
+        m.reply('```Oyun Quruldu, Oyunçu Gözlənilir..```' + (text ? `\n\nOyuna Qatılmaq Üçün Aşağıdaki Əmri Yazın
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
