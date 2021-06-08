@@ -3,8 +3,8 @@ handler.before = m => {
   let user = global.DATABASE.data.users[m.sender]
   if (user.afk > -1) {
     m.reply(`
-Kamu berhenti AFK${user.afkReason ? ' sonra ' + user.afkReason : ''}
-Sırasında ${clockString(new Date - user.afk)}
+Artıq AFK deyil${user.afkReason ? ' \nAFK səbəbi: ' + user.afkReason : ''}
+AFK müddəti ${clockString(new Date - user.afk)}
 `.trim())
     user.afk = -1
     user.afkReason = ''
@@ -17,9 +17,9 @@ Sırasında ${clockString(new Date - user.afk)}
     if (!afkTime || afkTime < 0) continue
     let reason = user.afkReason || ''
     m.reply(`
-Onu etiketləməyin!
-Dia sedang AFK ${reason ? 'səbəblə ' + reason : 'səbəbsiz'}
-Ərzində ${clockString(new Date - afkTime)}
+AFK-dır!
+AFK-dadır ${reason ? 'səbəblə ' + reason : 'səbəbsiz'}
+AFK müddəti ${clockString(new Date - afkTime)}
 `.trim())
   }
   return true
