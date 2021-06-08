@@ -53,7 +53,7 @@ Birini seç @${room.game.currentTurn.split('@')[0]}
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Qatılımcı Gözləyirəm' + (text ? `Qatılmaq İstəyən Aşağıdaki Əmri Yazsın
+        m.reply('Qatılımcı Gözləyirəm\n' + (text ? `\nQatılmaq İstəyən Aşağıdaki Əmri Yazsın
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
