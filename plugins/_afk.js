@@ -17,8 +17,8 @@ AFK müddəti ${clockString(new Date - user.afk)}
     if (!afkTime || afkTime < 0) continue
     let reason = user.afkReason || ''
     m.reply(`
-AFK-dadlr!
-AFK ${reason ? 'səbəbi ' + reason : 'səbəbsiz'}
+AFK-dadır!
+AFK ${reason ? 'səbəbi: ' + reason : 'səbəbsiz'}
 AFK müddəti ${clockString(new Date - afkTime)}
 `.trim())
   }
