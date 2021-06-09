@@ -22,10 +22,10 @@ Bürc : ${zodiac}
 `.trim()
     m.reply(teks)
 }
-handler.help = ['burc *2002 02 25*']
+handler.help = ['zodiac *2002 02 25*']
 handler.tags = ['tools']
 
-handler.command = /^burc[kc]$/i
+handler.command = /^zodiac[kc]$/i
 
 module.exports = handler
 
