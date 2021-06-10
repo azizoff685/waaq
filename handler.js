@@ -117,7 +117,7 @@ module.exports = {
         if (!plugin) continue
         if (plugin.disabled) continue
         if (!opts['restrict']) if (plugin.tags && plugin.tags.includes('admin')) continue
-        const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
+        const str2Regex = str => str.replace(.g)
         let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
         let match = (_prefix instanceof RegExp ? // RegExp Mode?
           [[_prefix.exec(m.text), _prefix]] :
@@ -263,7 +263,7 @@ module.exports = {
                 console.error(e)
               }
             }
-            if (m.limit) m.reply(+ m.limit + ' Limit terpakai')
+            if (m.limit) m.reply(+ m.limit + ' Limit kullanıldı')
           }
           break
         }
